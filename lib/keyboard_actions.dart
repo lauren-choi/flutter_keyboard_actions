@@ -442,54 +442,55 @@ class KeyboardActionstate extends State<KeyboardActions>
           top: false,
           bottom: false,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              config.nextFocus && displayArrows
-                  ? IconButton(
-                      icon: Icon(Icons.keyboard_arrow_up),
-                      tooltip: 'Previous',
-                      iconSize: IconTheme.of(context).size,
-                      color: IconTheme.of(context).color,
-                      disabledColor: Theme.of(context).disabledColor,
-                      onPressed: _previousIndex != null ? _onTapUp : null,
-                    )
-                  : const SizedBox.shrink(),
-              config.nextFocus && displayArrows
-                  ? IconButton(
-                      icon: Icon(Icons.keyboard_arrow_down),
-                      tooltip: 'Next',
-                      iconSize: IconTheme.of(context).size,
-                      color: IconTheme.of(context).color,
-                      disabledColor: Theme.of(context).disabledColor,
-                      onPressed: _nextIndex != null ? _onTapDown : null,
-                    )
-                  : const SizedBox.shrink(),
-              Spacer(),
-              if (_currentAction?.displayDoneButton != null &&
-                  _currentAction.displayDoneButton &&
-                  (_currentAction.toolbarButtons == null ||
-                      _currentAction.toolbarButtons.isEmpty))
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: InkWell(
-                    onTap: () {
-                      if (_currentAction?.onTapAction != null) {
-                        _currentAction.onTapAction();
-                      }
-                      _clearFocus();
-                    },
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-                      child: Text(
-                        "Done",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+              // config.nextFocus && displayArrows
+              //     ? IconButton(
+              //         icon: Icon(Icons.keyboard_arrow_up),
+              //         tooltip: 'Previous',
+              //         iconSize: IconTheme.of(context).size,
+              //         color: IconTheme.of(context).color,
+              //         disabledColor: Theme.of(context).disabledColor,
+              //         onPressed: _previousIndex != null ? _onTapUp : null,
+              //       )
+              //     : const SizedBox.shrink(),
+              // config.nextFocus && displayArrows
+              //     ? IconButton(
+              //         icon: Icon(Icons.keyboard_arrow_down),
+              //         tooltip: 'Next',
+              //         iconSize: IconTheme.of(context).size,
+              //         color: IconTheme.of(context).color,
+              //         disabledColor: Theme.of(context).disabledColor,
+              //         onPressed: _nextIndex != null ? _onTapDown : null,
+              //       )
+              //     : const SizedBox.shrink(),
+              // Spacer(),
+              // if (_currentAction?.displayDoneButton != null &&
+              //     _currentAction.displayDoneButton &&
+              //     (_currentAction.toolbarButtons == null ||
+              //         _currentAction.toolbarButtons.isEmpty))
+              //   Padding(
+              //     padding: const EdgeInsets.all(5.0),
+              //     child: InkWell(
+              //       onTap: () {
+              //         if (_currentAction?.onTapAction != null) {
+              //           _currentAction.onTapAction();
+              //         }
+              //         _clearFocus();
+              //       },
+              //       child: Container(
+              //         padding:
+              //             EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+              //         child: Text(
+              //           "Done",
+              //           style: TextStyle(
+              //             fontSize: 16.0,
+              //             fontWeight: FontWeight.w500,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
               if (_currentAction?.toolbarButtons != null)
                 ..._currentAction.toolbarButtons
                     .map((item) => item(_currentAction.focusNode))
